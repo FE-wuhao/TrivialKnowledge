@@ -1,0 +1,57 @@
+<!--
+ * @Author: nhsoft.wh
+ * @Date: 2022-06-09 12:57:43
+ * @LastEditors: nhsoft.wh
+ * @LastEditTime: 2022-06-09 13:46:26
+ * @Description: file content
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>display transition</title>
+    <style>
+      #block {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        display: none;
+        transition: all 3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="https://segmentfault.com/a/1190000023912169">文章地址</a>
+    <br />
+    <div id="block"></div>
+    <br />
+    <button id="btn">transition</button>
+  </body>
+  <script>
+    const ele = document.getElementById("block");
+
+    const btn = (document.getElementById("btn").onclick =
+      function () {
+        if (!ele.style.display || ele.style.display === "none") {
+          ele.style.display = "block";
+          /* 为什么会出现动画了呢？ 
+          因为我读取dom的这些特殊属性时，
+          浏览器就会强制清空渲染队列一次，
+          让我拿到最新的值。
+          也就是说读取的时候，
+          其实已经是display为"block"了，
+          因此。我们出现了过渡动画 */
+          ele.offsetHeight;
+          ele.style.transform = "translateX(200px)";
+        } else {
+          ele.style.display = "none";
+          ele.style.transform = "translateX(0)";
+        }
+      });
+  </script>
+</html>
