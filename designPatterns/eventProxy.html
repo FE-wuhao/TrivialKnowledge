@@ -1,0 +1,22 @@
+<!-- 这个是代理模式中的事件代理 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <div id="father">
+      <div id="child1">子元素1</div>
+      <div id="child2">子元素2</div>
+      <div id="child3">子元素3</div>
+      <div id="child4">子元素4</div>
+      <div id="child5">子元素5</div>
+      <div id="child6">子元素6</div>
+    </div>
+  </body>
+  <script>
+    const dom = document.getElementById("father");
+
+    dom.addEventListener("click", (e) => {
+      console.log("当前点击的元素是：", e.target.id);
+    });
+  </script>
+</html>
