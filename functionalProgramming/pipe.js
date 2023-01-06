@@ -2,7 +2,7 @@
  * @Author: nhsoft.wh
  * @Date: 2023-01-06 17:06:01
  * @LastEditors: nhsoft.wh
- * @LastEditTime: 2023-01-06 17:13:29
+ * @LastEditTime: 2023-01-06 17:50:29
  * @Description: file content
  */
 /** 基于reduce手动实现一个pipe
@@ -15,7 +15,7 @@ const add1 = (a) => {
 };
 
 // *2
-const multiple2 = (a) => {
+const multiply2 = (a) => {
   return a * 2;
 };
 
@@ -32,6 +32,6 @@ const pipe = (...functions) => {
   };
 };
 
-const compute = pipe(add1, multiple2, minus3);
+const compute = pipe(add1, multiply2, minus3);
 
 console.log("(5 + 1) * 2 - 3的结果是：", compute(5));
