@@ -1,0 +1,45 @@
+<!--
+ * @Author: nhsoft.wh
+ * @Date: 2023-02-02 11:12:16
+ * @LastEditors: nhsoft.wh
+ * @LastEditTime: 2023-02-02 11:44:38
+ * @Description: bfc应该作用于发生了margin塌陷、兄弟元素浮动重叠、子元素浮动父元素高度塌陷等问题的元素本身。
+      1.margin塌陷：相邻的两个元素的marign如果发生了塌陷，为其中一个元素设置bfc属性或者套上一个bfc即可
+      2.兄弟元素浮动重叠；节点1设置了float，节点2没有，这个时候节点1会压在节点2上，此时为节点二设置bfc属性或者套上一个bfc即可
+      3.子元素浮动父元素高度塌陷：父元素靠子元素撑起高度，子元素设置float，父元素高度塌陷，此时为父元素设置bfc属性或者套上一个bfc即可
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+      }
+
+      .box-item {
+        width: 100%;
+        height: 20px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+      }
+      .bfc {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box-item"></div>
+      <div class="box-item bfc"></div>
+      <div class="box-item"></div>
+    </div>
+  </body>
+</html>
